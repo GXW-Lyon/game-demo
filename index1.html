@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        #cnzz_stat_icon_1271731100{display:none;} 
+    </style>
+    <script>
+    //声明_czc对象:
+    var _czc = _czc || [];
+    _czc.push(["_setAccount", "1271731100"]);
+    </script>
+    <script src="./js/jquery.min.js"></script>
+    <style lang="">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            /* border: none; */
+            vertical-align: middle;
+        }
+
+        .wrap {
+            width: 100%;
+            height: 100%;
+            background: url('./img/flop_bg.png') no-repeat;
+            background-size: 100%;
+        }
+
+        .nav_top {
+            position: absolute;
+            top: 13%;
+        }
+
+        .nav_top img {
+            width: 80%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .center {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: 16%;
+        }
+
+        .center img {
+            width: 100%;
+        }
+
+        .content {
+            width: 65%;
+            height: 40%;
+            position: relative;
+            top: 32%;
+            left: 12%;
+        }
+
+        .content .pic {
+            position: absolute;
+            width: 30%;
+            height: 38%;
+            bottom: 0;
+            right: 0;
+        }
+
+        .content .pic .img1 {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .content .pic .a {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: pink;
+            opacity: 0.2;
+            display: none;
+        }
+
+        .mark {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            z-index: 5;
+        }
+
+        .moves {
+            animation: moves 2s linear forwards;
+        }
+
+        @keyframes moves {
+            25% {
+                transform: scale(1) rotateZ(0)
+            }
+            50% {
+                transform: scale(1.5) rotateZ(0)
+            }
+            75% {
+                transform: scale(1.5) rotateZ(10deg)
+            }
+            80% {
+                transform: scale(1.5) rotateZ(-10deg)
+            }
+            85% {
+                transform: scale(1.5) rotateZ(10deg)
+            }
+            90% {
+                transform: scale(1.5) rotateZ(-10deg)
+            }
+            95% {
+                transform: scale(1.5) rotateZ(10deg)
+            }
+            100% {
+                transform: scale(1.5) rotateZ(0) rotateY(70deg)
+            }
+        }
+
+        .win {
+            width: 80%;
+            position: absolute;
+            z-index: 6;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        .win img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .win img.close {
+            width: 14%;
+            position: absolute;
+            right: 26px;
+            top: 0;
+            z-index: 3;
+        }
+
+        .win img.advert {
+            width: 75%;
+            position: absolute;
+            top: 15%;
+            left: 11%;
+            /* z-index: 1; */
+            animation: move .5s linear forwards;
+        }
+
+        .win img.top {
+            position: relative;
+            left: 0;
+            top: 0;
+            /* z-index: 2 */
+        }
+
+        @keyframes move {
+            from {
+                top: 0px;
+            }
+            to {
+                top: 42%;
+            }
+        }
+
+        .rule {
+            width: 25%;
+            position: absolute;
+            right: 0;
+            top: 5%;
+        }
+
+        .rule img {
+            width: 100%;
+        }
+
+        .rule_info {
+            width: 80%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            z-index: 6;
+        }
+
+        .rule_info .rule_info2 {
+            width: 100%;
+        }
+
+        .rule_info .rule_info1 {
+            width: 10%;
+            float: right;
+        }
+
+        .more_game {
+            width: 80%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 6;
+            display: none;
+        }
+        .more_game img{
+            width: 100%;
+        }
+        .more_game .game_top {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .more_game .game_footer {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .more_game .game_close {
+            width: 5%;
+            float: right;
+        }
+        .game_num{
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+        .win_btn{
+            position: absolute;
+            left:39%;
+            top: 74%;
+            width: 20%;
+            height: 10%;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="nav_top">
+            <img src="./img/flop_title.png" alt="">
+        </div>
+        <div class="center">
+            <img src="./img/flop_list_bg.png" alt="">
+        </div>
+        <div class="content">
+            <div class="pic pic1">
+                <img src="./img/flop.png" alt="" class="img1">
+                <div class="a"></div>
+            </div>
+            <div class="pic pic2">
+                <img src="./img/flop.png" alt="" class="img1">
+                <div class="a"></div>
+            </div>
+            <div class="pic pic3">
+                <img src="./img/flop.png" alt="" class="img1">
+                <div class="a"></div>
+            </div>
+            <div class="pic pic4">
+                <img src="./img/flop.png" alt="" class="img1">
+                <div class="a"></div>
+            </div>
+            <div class="pic pic5">
+                <img src="./img/flop.png" alt="" class="img1">
+                <div class="a"></div>
+            </div>
+            <div class="pic pic6">
+                <img src="./img/flop.png" alt="" class="img1">
+                <div class="a"></div>
+            </div>
+        </div>
+        <div class="game_num">您今天还剩<span class="num">7</span>次机会</div>
+        <div class="mark"></div>
+        <div class="rule">
+            <img src="./img/flop_rule.png" alt="">
+        </div>
+        <div class="rule_info">
+            <img src="./img/flop_close.png" alt="" class="rule_info1">
+            <img src="./img/flop_rule_page.png" alt="" class="rule_info2">
+        </div>
+        <div class="win">
+            <div>
+                <img src="./img/flop_close.png" alt="" class="close">
+                <img src="./img/flop_winTop.png" alt="" class="top">
+                <img src="./img/33.jpg" alt="" class="advert">
+            </div>
+            <div>
+                <img src="./img/flopWinBottomMouse.png" alt="">
+                <div class="win_btn"></div>
+            </div>
+        </div>
+        <div class="more_game">
+            <img src="./img/flop_close.png" alt="" class="game_close">
+            <img src="./img/img_08.png" alt="" class="game_top">
+            <img src="./img/gamelistBottom.png" alt="" class="game_footer">
+        </div>
+        <div class="footer"></div>
+    </div>
+</body>
+<script>
+    $(function () {
+        var count = 0,
+        gameInfo = {
+            gameNo: 'GAzmjQ678p',
+        },
+        adInfo = {},
+        baseUrl = '//apneo.cn/tuia/api',
+        _pathSearch = location.search;
+        var sUserAgent = navigator.userAgent;
+        var isAndroid = sUserAgent.indexOf('Android') > -1 || sUserAgent.indexOf('Adr') > -1;
+        var pathArr = location.pathname.split('/');
+        var hName = pathArr[pathArr.length - 1].split('.')[0];
+        game_move();
+        var timer=null;
+        var timer1=null;
+        function game_move() {
+            $('.pic1').animate({ top: '16%', left: '10%' }, 300);
+            $('.pic2').delay(300).animate({ top: '16%', left: '40%' }, 300);
+            $('.pic3').delay(600).animate({ top: '16%', left: '70%' }, 300);
+            $('.pic4').delay(900).animate({ bottom: '0', left: '10%' }, 300);
+            $('.pic5').delay(1200).animate({ bottom: '0', left: '40%' }, 300);
+            clearTimeout(timer);
+           timer1= setTimeout(function () {
+                var i = 0;
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    $('.content .a').css('display', 'none');
+                    if (i > $('.content .a').length - 1) { i = 0 };
+                    $('.content .a').eq(i).css('display', 'block');
+                    i++;
+                }, 1000);
+            }, 1200);
+        }
+        $('.content .pic').on('click', function () {
+            clearInterval(timer);
+            $('.content .a').hide();
+            if (count == 0) {
+                $('.mark').show();
+                $('.more_game').show();
+                moreGameInfo();
+                return false;
+            }else{
+                $('.mark').css('display', 'block');
+                $(this).animate({ zIndex: '6', top: '34%', left: '40%' }, 500, function () {
+                    $(this).addClass('moves');
+                }).delay(3000).animate({ opacity: '0' }, function () {
+                    $('.win').show();
+                });
+                getAdvert();
+            }
+             count--;
+             $('.num').html(count);
+             pvCount('3', gameInfo.gameNo);
+        });
+
+        //点击广告
+        $('.advert').on('click',function(){
+            clickAdvert();
+        })
+
+        $('.close').on('click', function () {
+            $('.content .pic').removeClass('moves')
+            $('.mark').css('display', 'none');
+            $('.win').hide();
+            $('.pic').attr('style', 'none');
+            game_move();
+        });
+
+        $('.rule').on('click', function () {
+            $('.mark').show();
+            $('.rule_info').show();
+        })
+        $('.rule_info1').on('click', function () {
+            $('.mark').hide();
+            $('.rule_info').hide();
+        })
+        $('.game_close').on('click',function(){
+            $('.mark').hide();
+            $('.more_game').hide(); 
+        });
+        $('.more_game').on('click','.flag',function(){
+            // cnzz.apply($(this));
+            console.log(1);
+            location.href = $(this).data('url') + _pathSearch;
+        })
+
+          //游戏次数
+    $.ajax({
+        url: baseUrl + '/stat/pv' + _pathSearch,
+        type: 'get',
+        dataType: 'json',
+        data: {
+            type: '6',
+            val: gameInfo.gameNo
+        },
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        success: function (res) {
+            console.log(res);
+            count = res;
+            $('.num').html(count);
+        }
+    });
+    //游戏点击
+    var pvCount = function (type, val) {
+        $.ajax({
+            url: baseUrl + '/stat/pv' + _pathSearch,
+            type: 'get',
+            data: {
+                type: type,
+                val: val
+            },
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            success: function (res) {
+                console.log(res);
+            }
+        })
+    }
+    //广告
+    var getAdvert = function () {
+        $.ajax({
+            url: baseUrl + '/ad/get' + _pathSearch,
+            type: 'get',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            success: function (res) {
+                console.log(res);
+                if (res.totalNums == 0) {
+                    $('.win_btn').html('笑纳了');
+                    $('.win_advert').attr('src', '//apmou.cn/tuia/img/luckyad.jpg');
+                    $('win_tel').html('恭喜您获得');
+                    $('win_text').html('幸运上上签:今天大吉大利');
+                } else {
+                    adInfo = res.ads[0];
+                    $('.win_btn').html('立即领取');
+                    $('.win_advert').attr('src', '//apmou.cn/tuia/img/' + adInfo.adNo + '.jpg');
+                    $('.win_text').html(adInfo.adDesc);
+                    pvCount('4', adInfo.adNo);
+                }
+            }
+        })
+    }
+        //点击广告跳转
+        var clickAdvert = function () {
+        if (!adInfo.adNo) {
+            $('.content .pic').removeClass('moves')
+            $('.mark').css('display', 'none');
+            $('.win').hide();
+            $('.pic').attr('style', 'none');
+            game_move();
+        } else {
+            pvCount('5', adInfo.adNo);
+            // adInfo.adType==1?location.href=adInfo.apkUrl:location.href=adInfo.landpageUrl;
+            location.href = adInfo.apkUrl;
+            setTimeout(function () {
+                location.href = adInfo.landpageUrl;
+            }, 1500);
+        }
+    }
+    //更多游戏
+    var moreGameInfo = function () {
+        $.ajax({
+            url: baseUrl + '/game/list' + _pathSearch,
+            type: 'get',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            success: function (res) {
+                console.log(res);
+                if (res.totalNums > 0) {
+                    $('.more_game').children('.flag').remove();
+                    var data = res.game;
+                    for (var i = 0; i < data.length; i++) {
+                        $('.game_footer').before('<img src="//apmou.cn/tuia/img/' + data[i].gameNo + '.png" class="otherGameList flag" data-url="//apmou.cn/tuia/' + data[i].gameNo + '.html">');
+                    }
+                }
+            },
+            error: function (xhr, error) {}
+        })
+    }
+    //点击量计算
+    var cnzz = function () {
+        var thisPath = $(this).attr('src').split('/');
+        var imgName = thisPath[thisPath.length - 1];
+        _czc.push(["_trackEvent", hName, "click", imgName, "", '']);
+    }
+
+     //游戏展现
+     $(function () {
+        pvCount('2', gameInfo.gameNo);
+    })
+    })
+</script>
+   <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1271731100'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1271731100%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</html>

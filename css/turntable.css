@@ -1,0 +1,233 @@
+*{
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+img{
+    vertical-align: middle;
+}
+.turntable_wrap{
+    width: 100%;
+    height: 100%;
+    background: url('../img/flop_bg.png') no-repeat;
+    background-size: 100%;
+}
+.turntable_txt{
+    position: absolute;
+    top: 13%;
+}
+.turntable_txt img{
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.turntable_bg{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    margin-top: 16%;
+}
+.turntable_bg img{
+    width: 100%;
+    height: auto;
+}
+.turntable_game{
+    width: 65%;
+    height: 46%;
+    overflow: hidden;
+    position: relative;
+    top: 32%;
+    left: 12%;
+}
+.turntable_game .card_mask{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: pink;
+    opacity: 0.2;
+    display: none;
+}
+.turntable_game .cards_box{
+    position: absolute;
+    width: 30%;
+    /* height: 46%; */
+    bottom: 12%;
+    right: -1%;
+}
+.turntable_game .cards_box .card_pic{
+    width: 100%;
+    height: auto;
+}
+.moves {
+    animation: moves 2s linear forwards;
+}
+@keyframes moves {
+    25% {
+        transform: scale(1) rotateZ(0)
+    }
+    50% {
+        transform: scale(1.5) rotateZ(0)
+    }
+    75% {
+        transform: scale(1.5) rotateZ(10deg)
+    }
+    80% {
+        transform: scale(1.5) rotateZ(-10deg)
+    }
+    85% {
+        transform: scale(1.5) rotateZ(10deg)
+    }
+    90% {
+        transform: scale(1.5) rotateZ(-10deg)
+    }
+    95% {
+        transform: scale(1.5) rotateZ(10deg)
+    }
+    100% {
+        transform: scale(1.5) rotateZ(0) rotateY(70deg)
+    }
+}
+.turntable_num{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform:translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+}
+.mask_layer{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .9);
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    z-index: 5;
+}
+.turntable_rule{
+    width: 25%;
+    position: absolute;
+    right: 0;
+    top: 5%;
+}
+.turntable_rule img{
+    width: 100%;
+    height: auto;
+}
+.turntableRule_info{
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    display: none;
+    z-index: 6;
+}
+.turntableRule_info .rule_info{
+    width: 100%;
+    height: auto;
+}
+.turntableRule_info .rule_close{
+    width: 12%;
+    float: right;
+}
+.turntable_win{
+    width: 80%;
+    position: absolute;
+    z-index: 6;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    display: none;
+}
+.turntable_win .turntable_winTop .win_close{
+    width: 14%;
+    position: absolute;
+    right: 26px;
+    top: 0;
+    /* z-index: 3; */
+}
+.turntable_win .turntable_winTop .win_topbg{
+    width: 100%;
+    height: auto;
+}
+.turntable_win .turntable_winTop .win_advert{
+    width: 75%;
+    position: absolute;
+    top: 15%;
+    left: 11%;
+    /* z-index: 1; */
+    animation: move .5s linear forwards;
+    -webkit-animation: move .5s linear forwards;
+    -moz-animation: move .5s linear forwards;
+    -ms-zoom-animation: move .5s linear forwards;
+    -o-animation: move .5s linear forwards;
+}
+@keyframes move {
+    from {
+        top: 0px;
+    }
+    to {
+        top: 40%;
+    }
+}
+.turntable_winFooter .win_footerbg{
+    width: 100%;
+    height: auto;
+    margin-top: -1px;
+}
+.turntable_moreGame{
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    z-index: 6;
+    display: none;
+}
+.turntable_moreGame img{
+    width: 100%;
+}
+.turntable_moreGame .game_close{
+    width: 14%;
+    float: right;
+}
+.turntable_moreGame .game_top{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.turntable_moreGame .game_footer{
+    width: 100%;
+    height: auto;
+    display: block;
+}
